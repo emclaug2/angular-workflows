@@ -45,10 +45,14 @@
     <pxb-create-account-account-details-step
         *ngIf="currentPageId === 2 && !skipAccountDetails()"
         [useDefaultAccountDetails]="useDefaultAccountDetails"
+        [accountDetailsInstructions]="accountDetailsInstructions"
+        [accountDetailsTitle]="accountDetailsTitle"
         (accountDetailsChange)="accountDetails = $event"
         (validAccountDetailsChange)="hasValidAccountDetails = $event"
         (advance)="canContinue() ? goNext() : ''"
     >
+        <ng-content pxb-account-details-title select="[pxb-account-details-title]"></ng-content>
+        <ng-content pxb-account-details-instructions select="[pxb-account-details-instructions]"></ng-content>
         <ng-content pxb-account-details-form select="[pxb-account-details-form]"></ng-content>
     </pxb-create-account-account-details-step>
 

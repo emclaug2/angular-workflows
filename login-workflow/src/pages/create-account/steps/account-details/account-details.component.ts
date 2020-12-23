@@ -1,15 +1,24 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { PxbFormsService } from '../../../../services/forms/forms.service';
+import {isEmptyView} from "../../../../util/view-utils";
 
 @Component({
     selector: 'pxb-create-account-account-details-step',
     template: `
-        <div class="mat-title pxb-auth-title">Account Details</div>
+        <div class="mat-title pxb-auth-title">
+            <ng-container *ngIf="isEmpty(accountDetailsTitleEl)">
+                {{ accountDetailsTitle }}
+            </ng-container>
+            <div #accountDetailsTitleVC><ng-content select="[pxb-account-details-title]"></ng-content></div>
+        </div>
         <div class="pxb-auth-full-height">
             <p class="mat-body-1" style="margin-bottom: 24px;">
-                Enter your details below to complete account creation.
+                <ng-container *ngIf="isEmpty(accountDetailsInstructionsEl)">
+                    {{ accountDetailsInstructions }}
+                </ng-container>
             </p>
+            <div #accountDetailsInstructionsVC><ng-content select="[pxb-account-details-instructions]"></ng-content></div>
             <mat-divider class="pxb-auth-divider" style="margin-top: 16px; margin-bottom: 32px;"></mat-divider>
             <div style="display: flex; flex: 1 1 0px; overflow: auto;">
                 <ng-container *ngIf="!useDefaultAccountDetails">
@@ -67,20 +76,27 @@ import { PxbFormsService } from '../../../../services/forms/forms.service';
 /* Default Account Details consists of a First/Last Name (required) and a phone number (optional). */
 export class PxbAccountDetailsComponent {
     @Input() useDefaultAccountDetails = false;
+    @Input() accountDetailsTitle: string;
+    @Input() accountDetailsInstructions: string;
+
     @Output() accountDetailsChange = new EventEmitter<FormControl[]>();
     @Output() validAccountDetailsChange = new EventEmitter<boolean>();
     @Output() advance: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     @ViewChild('pxbLast') lastNameInputElement: ElementRef;
     @ViewChild('pxbPhone') phoneInputElement: ElementRef;
+    @ViewChild('accountDetailsTitleVC') accountDetailsTitleEl: ElementRef;
+    @ViewChild('accountDetailsInstructionsVC') accountDetailsInstructionsEl: ElementRef;
 
     firstNameFormControl: FormControl;
     lastNameFormControl: FormControl;
     phoneNumberFormControl: FormControl;
+    isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 
     constructor(public pxbFormsService: PxbFormsService) {}
 
     ngOnInit(): void {
+        this.setDefaultLabels();
         if (this.useDefaultAccountDetails) {
             this.firstNameFormControl = new FormControl('', Validators.required);
             this.lastNameFormControl = new FormControl('', Validators.required);
@@ -90,6 +106,15 @@ export class PxbAccountDetailsComponent {
                 this.lastNameFormControl,
                 this.phoneNumberFormControl,
             ]);
+        }
+    }
+
+    setDefaultLabels(): void {
+        if (this.accountDetailsTitle === undefined) {
+            this.accountDetailsTitle = 'Account Details';
+        }
+        if (this.accountDetailsInstructions === undefined) {
+            this.accountDetailsInstructions = 'Enter your details below to complete account creation.';
         }
     }
 

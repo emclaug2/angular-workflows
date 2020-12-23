@@ -31,8 +31,8 @@ export class PxbCreateAccountInviteComponent implements OnInit {
     @Input() passwordFormLabel: string;
     @Input() confirmPasswordFormLabel: string;
     @Input() passwordMismatchError: string;
-    @Input() accountDetailsTitle = 'Account Details';
-    @Input() accountDetailsInstructions = 'Enter your details below to complete account creation.';
+    @Input() accountDetailsTitle: string;
+    @Input() accountDetailsInstructions: string;
     @Input() accountCreatedTitle = 'Account Created';
     @Input() backButtonText = 'Back';
     @Input() nextButtonText = 'Next';
