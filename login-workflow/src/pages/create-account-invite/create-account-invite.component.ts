@@ -21,6 +21,9 @@ export class PxbCreateAccountInviteComponent implements OnInit {
     @Input() hasValidAccountDetails = false;
     @Input() useDefaultAccountDetails;
 
+
+    //TODO: Loading EULA, Verifying Reset URL, Error State
+
     @Input() eulaTitle: string;
     @Input() eulaConfirmRead: string;
     @Input() createPasswordTitle: string;
