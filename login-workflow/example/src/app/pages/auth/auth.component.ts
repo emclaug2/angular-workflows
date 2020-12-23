@@ -31,10 +31,14 @@ import { PxbAuthConfig, AUTH_ROUTES } from '@pxblue/angular-auth-workflow';
         <!-- Custom Create Account via Invite page -->
         <ng-template #createAccountViaInvitePage>
             <pxb-create-account-invite
+                eulaTitle="EULA Goes Here"
+                eulaConfirmRead="You read the eula, right?"
                 [accountDetails]="accountDetails"
                 [hasValidAccountDetails]="accountDetailsValid()"
                 [userName]="firstNameFormControl.value + ' ' + lastNameFormControl.value"
             >
+                <div pxb-eula-title>EULA title content</div>
+                <div pxb-eula-confirm-read>Did you read it?</div>
                 <template pxb-account-details-form [ngTemplateOutlet]="accountDetailsRef"></template>
             </pxb-create-account-invite>
         </ng-template>

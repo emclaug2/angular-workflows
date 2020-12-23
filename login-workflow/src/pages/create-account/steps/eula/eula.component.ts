@@ -1,15 +1,21 @@
-import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PxbAuthConfig } from './../../../../services/config/auth-config';
 import { PxbRegisterUIService } from '../../../../services/api/register-ui.service';
 import { PxbAuthSecurityService, SecurityContext } from '../../../../services/state/auth-security.service';
 import * as Colors from '@pxblue/colors';
+import {isEmptyView} from "../../../../util/view-utils";
 
 @Component({
     selector: 'pxb-create-account-eula-step',
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="mat-title pxb-auth-title">License Agreement</div>
+        <div class="mat-title pxb-auth-title">
+            <ng-container *ngIf="isEmpty(eulaTitleEl)">
+                {{ eulaTitle }}
+            </ng-container>
+            <div #eulaTitleVC><ng-content select="[pxb-eula-title]"></ng-content></div>
+        </div>
         <div
             *ngIf="eula"
             class="pxb-auth-full-height"
@@ -37,8 +43,11 @@ import * as Colors from '@pxblue/colors';
                 (change)="userAcceptsEulaChange.emit(userAcceptsEula)"
                 ngDefaultControl
             >
-                I have read and agree to the Terms & Conditions
-            </mat-checkbox>
+
+                <ng-container *ngIf="isEmpty(eulaConfirmReadEl)">
+                    {{ eulaConfirmRead }}
+                </ng-container>
+                <div #eulaConfirmReadVC><ng-content select="[pxb-eula-confirm-read]"></ng-content></div>            </mat-checkbox>
         </div>
     `,
     styles: [
@@ -57,12 +66,20 @@ import * as Colors from '@pxblue/colors';
     ],
 })
 export class PxbEulaComponent {
+    @Input() eulaTitle = 'License Agreement';
+    @Input() eulaConfirmRead = 'I have read and agree to the Terms & Conditions';
     @Input() userAcceptsEula: boolean;
     @Output() userAcceptsEulaChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+    @ViewChild('eulaTitleVC') eulaTitleEl;
+    @ViewChild('eulaConfirmReadVC') eulaConfirmReadEl;
+
     eula: string;
     isLoading: boolean;
     userScrolledBottom = false;
     colors = Colors;
+
+    isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 
     constructor(
         public sanitizer: DomSanitizer,

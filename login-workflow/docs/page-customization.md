@@ -159,3 +159,30 @@ The Forgot Password page allows a user to request a reset password email.
 | includeEmailInSuccessMessage       | Whether to include the email in the success message                         | `boolean`           |                                            |
 
 </div>
+
+
+## Create Account via Invite 
+A user has received an email invite to create an account.
+    
+<div style="overflow: auto;">
+
+| @Input                             | Description                                                                 | Type                | ng-content                                 |
+| ---------------------------------- | --------------------------------------------------------------------------- | ------------------- | ------------------------------------------ |   
+| eulaTitle                          | Title on License Agreement page                                             | `string`            | `pxb-eula-title`                           |
+| eulaConfirmRead                    | Text affirming the user has read the EULA                                   | `string`            | `pxb-eula-confirm-read`                    |  
+| createPasswordTitle                | Title on the Create Password page                                           | `string`            | `pxb-create-password-title`                |  
+| createPasswordInstructions         | Password creation instructions                                              | `string`            | `pxb-create-password-instructions`         |
+| passwordFormLabel                  | Password form title                                                         | `string`            | `pxb-password-form-label`                  | 
+| confirmPasswordFormLabel           | Confirm password form title                                                 | `string`            | `pxb-confirm-password-form-label`          |
+| passwordMismatchError              | Error seen when passwords do not match                                      | `string`            |                                            |
+| accountDetailsTitle                | Title on the Account Details page                                           | `string`            | `pxb-account-details-title`                |
+| accountDetailsInstructions         | Account details instructions                                                | `string`            | `pxb-account-details-instructions`         |
+| accountCreatedTitle                | Title on the Account Created page                                           | `string`            | `pxb-account-created-title`                |
+| successTitle                       | Success state title when email send is successful                           | `string`            | `pxb-success-title`                        |
+| successDescription                 | Success state description email send is successful                          | `string`            | `pxb-success-description`                  |
+| includeEmailInSuccessMessage       | Whether to include the email in the success message                         | `boolean`           |                                            |
+| backButtonText                     | Back button text                                                            | `string`            | `pxb-back-button-text`                     |
+| okayButtonText                     | Okay button text                                                            | `string`            | `pxb-okay-button-text`                     |  
+| doneButtonText                     | Done button text                                                            | `string`            | `pxb-done-button-text`                     |  
+
+</div>

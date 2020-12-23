@@ -20,6 +20,23 @@ export class PxbCreateAccountInviteComponent implements OnInit {
     @Input() hasValidAccountDetails = false;
     @Input() useDefaultAccountDetails;
 
+    @Input() eulaTitle = 'License Agreement';
+    @Input() eulaConfirmRead = 'I have read and agree to the Terms & Conditions';
+    @Input() createPasswordTitle = 'Create Password';
+    @Input() createPasswordInstructions = 'Please select a password. Make sure that your password meets the necessary complexity requirements outlined below.';
+    @Input() passwordFormLabel = 'Password';
+    @Input() confirmPasswordFormLabel = 'Confirm Password';
+    @Input() passwordMismatchError = 'Passwords do not match';
+    @Input() accountDetailsTitle = 'Account Details';
+    @Input() accountDetailsInstructions = 'Enter your details below to complete account creation.';
+    @Input() accountCreatedTitle = 'Account Created';
+    @Input() backButtonText = 'Back';
+    @Input() okayButtonText = 'Okay';
+    @Input() doneButtonText = 'Continue';
+    @Input() successTitle;
+    @Input() successDescription;
+
+
     currentPageId = 0;
     isLoading: boolean;
     isValidRegistrationLink: boolean;
