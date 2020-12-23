@@ -1,10 +1,10 @@
-import {Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation} from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PxbAuthConfig } from './../../../../services/config/auth-config';
 import { PxbRegisterUIService } from '../../../../services/api/register-ui.service';
 import { PxbAuthSecurityService, SecurityContext } from '../../../../services/state/auth-security.service';
 import * as Colors from '@pxblue/colors';
-import {isEmptyView} from "../../../../util/view-utils";
+import { isEmptyView } from '../../../../util/view-utils';
 
 @Component({
     selector: 'pxb-create-account-eula-step',
@@ -43,11 +43,11 @@ import {isEmptyView} from "../../../../util/view-utils";
                 (change)="userAcceptsEulaChange.emit(userAcceptsEula)"
                 ngDefaultControl
             >
-
                 <ng-container *ngIf="isEmpty(eulaConfirmReadEl)">
                     {{ eulaConfirmRead }}
                 </ng-container>
-                <div #eulaConfirmReadVC><ng-content select="[pxb-eula-confirm-read]"></ng-content></div>            </mat-checkbox>
+                <div #eulaConfirmReadVC><ng-content select="[pxb-eula-confirm-read]"></ng-content></div>
+            </mat-checkbox>
         </div>
     `,
     styles: [

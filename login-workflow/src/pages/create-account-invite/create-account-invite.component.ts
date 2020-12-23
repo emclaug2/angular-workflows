@@ -23,7 +23,8 @@ export class PxbCreateAccountInviteComponent implements OnInit {
     @Input() eulaTitle = 'License Agreement';
     @Input() eulaConfirmRead = 'I have read and agree to the Terms & Conditions';
     @Input() createPasswordTitle = 'Create Password';
-    @Input() createPasswordInstructions = 'Please select a password. Make sure that your password meets the necessary complexity requirements outlined below.';
+    @Input() createPasswordInstructions =
+        'Please select a password. Make sure that your password meets the necessary complexity requirements outlined below.';
     @Input() passwordFormLabel = 'Password';
     @Input() confirmPasswordFormLabel = 'Confirm Password';
     @Input() passwordMismatchError = 'Passwords do not match';
@@ -35,7 +36,6 @@ export class PxbCreateAccountInviteComponent implements OnInit {
     @Input() doneButtonText = 'Continue';
     @Input() successTitle;
     @Input() successDescription;
-
 
     currentPageId = 0;
     isLoading: boolean;
