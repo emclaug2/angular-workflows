@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PxbAuthConfig } from './../../../../services/config/auth-config';
 import { PxbRegisterUIService } from '../../../../services/api/register-ui.service';
@@ -65,9 +65,9 @@ import { isEmptyView } from '../../../../util/view-utils';
         `,
     ],
 })
-export class PxbEulaComponent {
-    @Input() eulaTitle = 'License Agreement';
-    @Input() eulaConfirmRead = 'I have read and agree to the Terms & Conditions';
+export class PxbEulaComponent implements OnInit {
+    @Input() eulaTitle: string;
+    @Input() eulaConfirmRead: string;
     @Input() userAcceptsEula: boolean;
     @Output() userAcceptsEulaChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -93,6 +93,7 @@ export class PxbEulaComponent {
     }
 
     ngOnInit(): void {
+        this.setDefaultLabels();
         // Configurable option to require users to scroll to bottom of EULA before accepting.
         if (!this._pxbAuthConfig.eulaScrollLock) {
             this.userScrolledBottom = true;
@@ -102,6 +103,15 @@ export class PxbEulaComponent {
             this.userScrolledBottom = true;
         }
         this.getEULA();
+    }
+
+    setDefaultLabels(): void {
+        if (this.eulaTitle === undefined) {
+            this.eulaTitle = 'License Agreement';
+        }
+        if (this.eulaConfirmRead === undefined) {
+            this.eulaConfirmRead = 'I have read and agree to the Terms & Conditions';
+        }
     }
 
     getEULA(): void {

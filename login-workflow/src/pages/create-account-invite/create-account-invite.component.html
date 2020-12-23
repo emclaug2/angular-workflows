@@ -29,7 +29,18 @@
         [(password)]="password"
         [(passwordMeetsRequirements)]="passwordMeetsRequirements"
         (advance)="canContinue() ? goNext() : ''"
-    ></pxb-create-account-create-password-step>
+        [createPasswordTitle]="createPasswordTitle"
+        [createPasswordInstructions]="createPasswordInstructions"
+        [passwordFormLabel]="passwordFormLabel"
+        [confirmPasswordFormLabel]="confirmPasswordFormLabel"
+        [passwordMismatchError]="passwordMismatchError"
+    >
+        <ng-content pxb-create-password-title select="[pxb-create-password-title]"></ng-content>
+        <ng-content pxb-create-password-instructions select="[pxb-create-password-instructions]"></ng-content>
+        <ng-content pxb-password-form-label select="[pxb-password-form-label]"></ng-content>
+        <ng-content pxb-confirm-password-form-label select="[pxb-confirm-password-form-label]"></ng-content>
+        <ng-content pxb-password-mismatch-error select="[pxb-password-mismatch-error]"></ng-content>
+    </pxb-create-account-create-password-step>
 
     <pxb-create-account-account-details-step
         *ngIf="currentPageId === 2 && !skipAccountDetails()"
@@ -52,7 +63,10 @@
         <ng-container *ngIf="showStepper()">
             <pxb-mobile-stepper [steps]="getNumberOfSteps()" [activeStep]="currentPageId">
                 <button pxb-back-button mat-stroked-button color="primary" style="width: 100px;" (click)="goBack()">
-                    Back
+                    <ng-container *ngIf="isEmpty(backButtonTextEl)">{{ backButtonText }}</ng-container>
+                    <div #backButtonTextVC>
+                        <ng-content select="[pxb-back-button-text]"></ng-content>
+                    </div>
                 </button>
                 <button
                     pxb-next-button
@@ -62,12 +76,18 @@
                     [disabled]="!canContinue()"
                     (click)="goNext()"
                 >
-                    Next
+                    <ng-container *ngIf="isEmpty(nextButtonTextEl)">{{ nextButtonText }}</ng-container>
+                    <div #nextButtonTextVC>
+                        <ng-content select="[pxb-next-button-text]"></ng-content>
+                    </div>
                 </button>
             </pxb-mobile-stepper>
         </ng-container>
         <button *ngIf="!showStepper()" mat-flat-button color="primary" (click)="navigateToLogin()" style="width: 100%">
-            Continue
+            <ng-container *ngIf="isEmpty(doneButtonTextEl)">{{ doneButtonText }}</ng-container>
+            <div #doneButtonTextVC>
+                <ng-content select="[pxb-done-button-text]"></ng-content>
+            </div>
         </button>
     </div>
 </ng-container>

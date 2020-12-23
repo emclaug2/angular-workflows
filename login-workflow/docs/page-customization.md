@@ -182,7 +182,7 @@ A user has received an email invite to create an account.
 | successDescription                 | Success state description email send is successful                          | `string`            | `pxb-success-description`                  |
 | includeEmailInSuccessMessage       | Whether to include the email in the success message                         | `boolean`           |                                            |
 | backButtonText                     | Back button text                                                            | `string`            | `pxb-back-button-text`                     |
-| okayButtonText                     | Okay button text                                                            | `string`            | `pxb-okay-button-text`                     |  
+| nextButtonText                     | Next button text                                                            | `string`            | `pxb-next-button-text`                     |  
 | doneButtonText                     | Done button text                                                            | `string`            | `pxb-done-button-text`                     |  
 
 </div>

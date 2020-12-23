@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AUTH_ROUTES } from '../../auth/auth.routes';
@@ -8,6 +8,7 @@ import { PxbAuthSecurityService, SecurityContext } from '../../services/state/au
 import { PxbCreateAccountInviteErrorDialogService } from '../../services/dialog/create-account-invite-error-dialog.service';
 import { ErrorDialogData } from '../../services/dialog/error-dialog.service';
 import { FormControl } from '@angular/forms';
+import {isEmptyView} from "../../util/view-utils";
 
 @Component({
     selector: 'pxb-create-account-invite',
@@ -20,22 +21,27 @@ export class PxbCreateAccountInviteComponent implements OnInit {
     @Input() hasValidAccountDetails = false;
     @Input() useDefaultAccountDetails;
 
-    @Input() eulaTitle = 'License Agreement';
-    @Input() eulaConfirmRead = 'I have read and agree to the Terms & Conditions';
-    @Input() createPasswordTitle = 'Create Password';
-    @Input() createPasswordInstructions =
-        'Please select a password. Make sure that your password meets the necessary complexity requirements outlined below.';
-    @Input() passwordFormLabel = 'Password';
-    @Input() confirmPasswordFormLabel = 'Confirm Password';
-    @Input() passwordMismatchError = 'Passwords do not match';
+    @Input() eulaTitle: string;
+    @Input() eulaConfirmRead: string;
+    @Input() createPasswordTitle: string;
+    @Input() createPasswordInstructions: string;
+    @Input() passwordFormLabel: string;
+    @Input() confirmPasswordFormLabel: string;
+    @Input() passwordMismatchError: string;
     @Input() accountDetailsTitle = 'Account Details';
     @Input() accountDetailsInstructions = 'Enter your details below to complete account creation.';
     @Input() accountCreatedTitle = 'Account Created';
     @Input() backButtonText = 'Back';
-    @Input() okayButtonText = 'Okay';
+    @Input() nextButtonText = 'Next';
     @Input() doneButtonText = 'Continue';
     @Input() successTitle;
     @Input() successDescription;
+
+    @ViewChild('backButtonTextVC') backButtonTextEl;
+    @ViewChild('doneButtonTextVC') doneButtonTextEl;
+    @ViewChild('nextButtonTextVC') nextButtonTextEl;
+
+    isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 
     currentPageId = 0;
     isLoading: boolean;

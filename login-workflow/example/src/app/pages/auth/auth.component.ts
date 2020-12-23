@@ -33,6 +33,8 @@ import { PxbAuthConfig, AUTH_ROUTES } from '@pxblue/angular-auth-workflow';
             <pxb-create-account-invite
                 eulaTitle="EULA Goes Here"
                 eulaConfirmRead="You read the eula, right?"
+                createPasswordTitle="Make Password here"
+                passwordFormLabel="Secret Phrase"
                 [accountDetails]="accountDetails"
                 [hasValidAccountDetails]="accountDetailsValid()"
                 [userName]="firstNameFormControl.value + ' ' + lastNameFormControl.value"
