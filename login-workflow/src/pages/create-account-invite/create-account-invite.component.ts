@@ -16,30 +16,37 @@ import {isEmptyView} from "../../util/view-utils";
     styleUrls: ['./create-account-invite.component.scss'],
 })
 export class PxbCreateAccountInviteComponent implements OnInit {
-    @Input() userName: string;
     @Input() accountDetails: FormControl[] = [];
     @Input() hasValidAccountDetails = false;
     @Input() useDefaultAccountDetails;
 
-
     //TODO: Loading EULA, Verifying Reset URL, Error State
 
+    // EULA Page
     @Input() eulaTitle: string;
     @Input() eulaConfirmRead: string;
+
+    // Create Password Page
     @Input() createPasswordTitle: string;
     @Input() createPasswordInstructions: string;
     @Input() passwordFormLabel: string;
     @Input() confirmPasswordFormLabel: string;
     @Input() passwordMismatchError: string;
+
+    // Account Details Page
     @Input() accountDetailsTitle: string;
     @Input() accountDetailsInstructions: string;
-    @Input() accountCreatedTitle = 'Account Created';
+
+    // Account Created Page
+    @Input() accountCreatedTitle: string;
+    @Input() successTitle: string;
+    @Input() successDescription: string;
+    @Input() userName: string;
+
+    // Stepper Buttons
     @Input() backButtonText = 'Back';
     @Input() nextButtonText = 'Next';
     @Input() doneButtonText = 'Continue';
-    @Input() successTitle;
-    @Input() successDescription;
-
     @ViewChild('backButtonTextVC') backButtonTextEl;
     @ViewChild('doneButtonTextVC') doneButtonTextEl;
     @ViewChild('nextButtonTextVC') nextButtonTextEl;

@@ -11,29 +11,49 @@ import {isEmptyView} from "../../../../util/view-utils";
             <div #accountCreatedTitleVC><ng-content select="[pxb-account-created-title]"></ng-content></div>
         </div>
         <div class="pxb-auth-full-height" style="justify-content: center;">
-            <pxb-empty-state
-                class="pxb-account-created-empty-state"
-                [title]="getSuccessEmptyStateTitle()"
-                [description]="getSuccessEmptyStateDescription()"
-            >
-                <mat-icon pxb-empty-icon class="pxb-account-created-icon">check_circle</mat-icon>
+            <pxb-empty-state>
+                <mat-icon pxb-empty-icon class="pxb-account-created-empty-state">check_circle</mat-icon>
+                <div pxb-title>
+                    <div *ngIf="isEmpty(successTitleEl)">{{ successTitle }}</div>
+                    <div #successTitleVC>
+                        <ng-content select="[pxb-account-created-success-title]"></ng-content>
+                    </div>
+                </div>
+                <div pxb-description>
+                    <div *ngIf="isEmpty(successDescriptionEl)">
+                        {{ successDescription }}
+                    </div>
+                    <div #successDescriptionVC>
+                        <ng-content select="[pxb-account-created-success-description]"></ng-content>
+                    </div>
+                </div>
             </pxb-empty-state>
         </div>
     `,
     styleUrls: ['./account-created.component.scss'],
 })
 export class PxbAccountCreatedComponent implements OnInit {
-    @Input() email;
-    @Input() userName;
-    @Input() accountCreatedTitle;
+    @Input() email: string;
+    @Input() userName: string;
+    @Input() accountCreatedTitle: string;
+    @Input() successTitle: string;
+    @Input() successDescription: string;
 
     @ViewChild('accountCreatedTitleVC') accountCreatedTitleEl;
+    @ViewChild('successTitleVC') successTitleEl;
+    @ViewChild('successDescriptionVC') successDescriptionEl;
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 
     ngOnInit(): void {
         if (this.accountCreatedTitle === undefined) {
             this.accountCreatedTitle = 'Account Created';
+        }
+        if (this.successDescription === undefined) {
+            this.successDescription = this.getSuccessEmptyStateDescription();
+        }
+        if (this.successTitle === undefined) {
+            this.successTitle = this.getSuccessEmptyStateTitle();
         }
     }
 

@@ -37,9 +37,6 @@
     >
         <ng-content pxb-create-password-title select="[pxb-create-password-title]"></ng-content>
         <ng-content pxb-create-password-instructions select="[pxb-create-password-instructions]"></ng-content>
-        <ng-content pxb-password-form-label select="[pxb-password-form-label]"></ng-content>
-        <ng-content pxb-confirm-password-form-label select="[pxb-confirm-password-form-label]"></ng-content>
-        <ng-content pxb-password-mismatch-error select="[pxb-password-mismatch-error]"></ng-content>
     </pxb-create-account-create-password-step>
 
     <pxb-create-account-account-details-step
@@ -59,7 +56,13 @@
     <pxb-create-account-account-created-step
         *ngIf="currentPageId === 3 || (currentPageId === 2 && skipAccountDetails())"
         [userName]="getUserName()"
+        [accountCreatedTitle]="accountCreatedTitle"
+        [successTitle]="successTitle"
+        [successDescription]="successDescription"
     >
+        <ng-content pxb-account-created-title select="[pxb-account-created-title]"></ng-content>
+        <ng-content pxb-account-created-success-title select="[pxb-account-created-success-title]"></ng-content>
+        <ng-content pxb-account-created-success-description select="[pxb-account-created-success-description]"></ng-content>
     </pxb-create-account-account-created-step>
 
     <mat-divider class="pxb-auth-divider" style="margin-bottom: 16px;"></mat-divider>
