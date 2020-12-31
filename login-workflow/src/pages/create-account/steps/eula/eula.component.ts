@@ -1,4 +1,13 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation} from '@angular/core';
+import {
+    Component,
+    ElementRef,
+    EventEmitter,
+    Input,
+    OnInit,
+    Output,
+    ViewChild,
+    ViewEncapsulation,
+} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { PxbAuthConfig } from './../../../../services/config/auth-config';
 import { PxbRegisterUIService } from '../../../../services/api/register-ui.service';
@@ -11,10 +20,7 @@ import { isEmptyView } from '../../../../util/view-utils';
     encapsulation: ViewEncapsulation.None,
     template: `
         <div class="mat-title pxb-auth-title">
-            <ng-container *ngIf="isEmpty(eulaTitleEl)">
-                {{ eulaTitle }}
-            </ng-container>
-            <div #eulaTitleVC><ng-content select="[pxb-eula-title]"></ng-content></div>
+            {{ eulaTitle }}
         </div>
         <div
             *ngIf="eula"
@@ -71,7 +77,6 @@ export class PxbEulaComponent implements OnInit {
     @Input() userAcceptsEula: boolean;
     @Output() userAcceptsEulaChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-    @ViewChild('eulaTitleVC') eulaTitleEl;
     @ViewChild('eulaConfirmReadVC') eulaConfirmReadEl;
 
     eula: string;

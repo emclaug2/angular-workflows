@@ -76,11 +76,11 @@ The Contact Support page contains information for users who need help accessing/
 | @Input                        | Description                                                                 | Type                 | ng-content                            |
 | ----------------------------- | --------------------------------------------------------------------------- | -------------------- | ------------------------------------- |  
 | emergencySupportDescription   | Emergency support section description                                       | `string`             | `pxb-emergency-support-description`   | 
-| emergencySupportTitle         | Emergency support section title                                             | `string`             | `pxb-emergency-support-title`         |  
+| emergencySupportTitle         | Emergency support section title                                             | `string`             |                                       |  
 | generalSupportDescription     | General support section description                                         | `string`             | `pxb-general-support-description`     |   
-| generalSupportTitle           | General support section title                                               | `string `            | `pxb-general-support-title`           |
+| generalSupportTitle           | General support section title                                               | `string `            |                                       |
 | okayButtonText                | Text that appears in the button at the bottom of the page                   | `string`             | `pxb-okay-button-text`                | 
-| pageTitle                     | Page title                                                                  | `string `            | `pxb-page-title`                      |
+| pageTitle                     | Page title                                                                  | `string `            |                                       |
 
 </div>
 
@@ -124,12 +124,12 @@ The Reset Password page is normally access via email and contains forms used to 
 
 | @Input                             | Description                                                                 | Type                | ng-content                                 |
 | ---------------------------------- | --------------------------------------------------------------------------- | ------------------- | ------------------------------------------ |   
-| backButtonText                     | Back button text                                                            | `string`            | `pxb-back-button-text`                     |
+| backButtonText                     | Back button text                                                            | `string`            |                                            |
 | confirmPasswordFormLabel           | Confirm password form title                                                 | `string`            |                                            |  
-| doneButtonText                     | Done button text                                                            | `string`            | `pxb-done-button-text`                     |
-| okayButtonText                     | Okay button text                                                            | `string`            | `pxb-okay-button-text`                     |  
+| doneButtonText                     | Done button text                                                            | `string`            |                                            |
+| okayButtonText                     | Okay button text                                                            | `string`            |                                            |  
 | pageDescription                    | Password reset instructions                                                 | `string`            | `pxb-page-description`                     |
-| pageTitle                          | Page title                                                                  | `string`            | `pxb-page-title`                           |
+| pageTitle                          | Page title                                                                  | `string`            |                                            |
 | passwordFormLabel                  | Password form title                                                         | `string`            |                                            |
 | passwordMismatchError              | Error seen when passwords do not match                                      | `string`            |                                            |
 | resetCodeErrorTitle                | Error state title seen when link validation invalid                         | `string`            | `pxb-reset-code-error-title`               |
@@ -146,13 +146,13 @@ The Forgot Password page allows a user to request a reset password email.
 
 | @Input                             | Description                                                                 | Type                | ng-content                                 |
 | ---------------------------------- | --------------------------------------------------------------------------- | ------------------- | ------------------------------------------ |   
-| backButtonText                     | Back button text                                                            | `string`            | `pxb-back-button-text`                     |
-| okayButtonText                     | Okay button text                                                            | `string`            | `pxb-okay-button-text`                     |  
-| doneButtonText                     | Done button text                                                            | `string`            | `pxb-done-button-text`                     |  
+| backButtonText                     | Back button text                                                            | `string`            |                                            |
+| okayButtonText                     | Okay button text                                                            | `string`            |                                            |  
+| doneButtonText                     | Done button text                                                            | `string`            |                                            |  
 | pageInstructions                   | Password reset instructions                                                 | `string`            | `pxb-page-instructions`                    |
 | phoneContactDescription            | Instructions for who to contact for help                                    | `string`            | `pxb-phone-contact-description`            | 
 | businessResponseDescription        | Description of when to expect a response                                    | `string`            | `pxb-business-response-description`        |
-| pageTitle                          | Page title                                                                  | `string`            | `pxb-page-title`                           |
+| pageTitle                          | Page title                                                                  | `string`            |                                            |
 | emailFormLabel                     | Email form title                                                            | `string`            |                                            |
 | successTitle                       | Success state title when email send is successful                           | `string`            | `pxb-success-title`                        |
 | successDescription                 | Success state description email send is successful                          | `string`            | `pxb-success-description`                  |
@@ -168,21 +168,21 @@ A user has received an email invite to create an account.
 
 | @Input                             | Description                                                                 | Type                | ng-content                                 |
 | ---------------------------------- | --------------------------------------------------------------------------- | ------------------- | ------------------------------------------ |   
-| eulaTitle                          | Title on License Agreement page                                             | `string`            | `pxb-eula-title`                           |
+| eulaTitle                          | Title on License Agreement page                                             | `string`            |                                            |
 | eulaConfirmRead                    | Text affirming the user has read the EULA                                   | `string`            | `pxb-eula-confirm-read`                    |  
-| createPasswordTitle                | Title on the Create Password page                                           | `string`            | `pxb-create-password-title`                |  
+| createPasswordTitle                | Title on the Create Password page                                           | `string`            |                                            |  
 | createPasswordInstructions         | Password creation instructions                                              | `string`            | `pxb-create-password-instructions`         |
 | passwordFormLabel                  | Password form title                                                         | `string`            | `pxb-password-form-label`                  | 
 | confirmPasswordFormLabel           | Confirm password form title                                                 | `string`            | `pxb-confirm-password-form-label`          |
 | passwordMismatchError              | Error seen when passwords do not match                                      | `string`            |                                            |
-| accountDetailsTitle                | Title on the Account Details page                                           | `string`            | `pxb-account-details-title`                |
+| accountDetailsTitle                | Title on the Account Details page                                           | `string`            |                                            |
 | accountDetailsInstructions         | Account details instructions                                                | `string`            | `pxb-account-details-instructions`         |
-| accountCreatedTitle                | Title on the Account Created page                                           | `string`            | `pxb-account-created-title`                |
+| accountCreatedTitle                | Title on the Account Created page                                           | `string`            |                                            |
 | successTitle                       | Success state title when email send is successful                           | `string`            | `pxb-success-title`                        |
 | successDescription                 | Success state description email send is successful                          | `string`            | `pxb-success-description`                  |
 | includeEmailInSuccessMessage       | Whether to include the email in the success message                         | `boolean`           |                                            |
-| backButtonText                     | Back button text                                                            | `string`            | `pxb-back-button-text`                     |
-| nextButtonText                     | Next button text                                                            | `string`            | `pxb-next-button-text`                     |  
-| doneButtonText                     | Done button text                                                            | `string`            | `pxb-done-button-text`                     |  
+| backButtonText                     | Back button text                                                            | `string`            |                                            |
+| nextButtonText                     | Next button text                                                            | `string`            |                                            |  
+| doneButtonText                     | Done button text                                                            | `string`            |                                            |  
 
 </div>

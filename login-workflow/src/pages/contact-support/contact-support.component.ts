@@ -21,11 +21,7 @@ export class PxbContactSupportComponent implements OnInit, AfterViewInit {
     @Input() emergencySupportDescription: string;
 
     @ViewChild('icon') iconEl: ElementRef;
-    @ViewChild('pageTitleVC') pageTitleEl;
-    @ViewChild('okayButtonTextVC') okayButtonTextEl;
-    @ViewChild('generalSupportTitleVC') generalSupportTitleEl;
     @ViewChild('generalSupportDescriptionVC') generalSupportDescriptionEl;
-    @ViewChild('emergencySupportTitleVC') emergencySupportTitleEl;
     @ViewChild('emergencySupportDescriptionVC') emergencySupportDescriptionEl;
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 

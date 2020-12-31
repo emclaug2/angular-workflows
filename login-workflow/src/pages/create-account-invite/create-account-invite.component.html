@@ -20,7 +20,6 @@
         [eulaTitle]="eulaTitle"
         [eulaConfirmRead]="eulaConfirmRead"
     >
-        <ng-content pxb-eula-title select="[pxb-eula-title]"></ng-content>
         <ng-content pxb-eula-confirm-read select="[pxb-eula-confirm-read]"></ng-content>
     </pxb-create-account-eula-step>
 
@@ -35,7 +34,6 @@
         [confirmPasswordFormLabel]="confirmPasswordFormLabel"
         [passwordMismatchError]="passwordMismatchError"
     >
-        <ng-content pxb-create-password-title select="[pxb-create-password-title]"></ng-content>
         <ng-content pxb-create-password-instructions select="[pxb-create-password-instructions]"></ng-content>
     </pxb-create-account-create-password-step>
 
@@ -48,7 +46,6 @@
         (validAccountDetailsChange)="hasValidAccountDetails = $event"
         (advance)="canContinue() ? goNext() : ''"
     >
-        <ng-content pxb-account-details-title select="[pxb-account-details-title]"></ng-content>
         <ng-content pxb-account-details-instructions select="[pxb-account-details-instructions]"></ng-content>
         <ng-content pxb-account-details-form select="[pxb-account-details-form]"></ng-content>
     </pxb-create-account-account-details-step>
@@ -60,9 +57,11 @@
         [successTitle]="successTitle"
         [successDescription]="successDescription"
     >
-        <ng-content pxb-account-created-title select="[pxb-account-created-title]"></ng-content>
         <ng-content pxb-account-created-success-title select="[pxb-account-created-success-title]"></ng-content>
-        <ng-content pxb-account-created-success-description select="[pxb-account-created-success-description]"></ng-content>
+        <ng-content
+            pxb-account-created-success-description
+            select="[pxb-account-created-success-description]"
+        ></ng-content>
     </pxb-create-account-account-created-step>
 
     <mat-divider class="pxb-auth-divider" style="margin-bottom: 16px;"></mat-divider>
@@ -70,10 +69,7 @@
         <ng-container *ngIf="showStepper()">
             <pxb-mobile-stepper [steps]="getNumberOfSteps()" [activeStep]="currentPageId">
                 <button pxb-back-button mat-stroked-button color="primary" style="width: 100px;" (click)="goBack()">
-                    <ng-container *ngIf="isEmpty(backButtonTextEl)">{{ backButtonText }}</ng-container>
-                    <div #backButtonTextVC>
-                        <ng-content select="[pxb-back-button-text]"></ng-content>
-                    </div>
+                    {{ backButtonText }}
                 </button>
                 <button
                     pxb-next-button
@@ -83,18 +79,12 @@
                     [disabled]="!canContinue()"
                     (click)="goNext()"
                 >
-                    <ng-container *ngIf="isEmpty(nextButtonTextEl)">{{ nextButtonText }}</ng-container>
-                    <div #nextButtonTextVC>
-                        <ng-content select="[pxb-next-button-text]"></ng-content>
-                    </div>
+                    {{ nextButtonText }}
                 </button>
             </pxb-mobile-stepper>
         </ng-container>
         <button *ngIf="!showStepper()" mat-flat-button color="primary" (click)="navigateToLogin()" style="width: 100%">
-            <ng-container *ngIf="isEmpty(doneButtonTextEl)">{{ doneButtonText }}</ng-container>
-            <div #doneButtonTextVC>
-                <ng-content select="[pxb-done-button-text]"></ng-content>
-            </div>
+            {{ doneButtonText }}
         </button>
     </div>
 </ng-container>

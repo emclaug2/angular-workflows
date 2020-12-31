@@ -1,6 +1,5 @@
 <div class="mat-title pxb-auth-title">
-    <ng-container *ngIf="isEmpty(pageTitleEl)">{{ pageTitle }}</ng-container>
-    <div #pageTitleVC><ng-content select="[pxb-page-title]"></ng-content></div>
+    {{ pageTitle }}
 </div>
 
 <div style="text-align: center; margin-bottom: 26px; margin-top: 8px;">
@@ -12,13 +11,8 @@
 
 <div class="pxb-contact-support-description">
     <p class="mat-body-1" style="margin-bottom: 8px;">
-        <ng-container *ngIf="isEmpty(generalSupportTitleEl)">
-            {{ generalSupportTitle }}
-        </ng-container>
+        {{ generalSupportTitle }}
     </p>
-    <div #generalSupportTitleVC>
-        <ng-content select="[pxb-general-support-title]"></ng-content>
-    </div>
 
     <p
         *ngIf="isEmpty(generalSupportDescriptionEl)"
@@ -29,9 +23,8 @@
     <div #generalSupportDescriptionVC><ng-content select="[pxb-general-support-description]"></ng-content></div>
 
     <p class="mat-body-1" style="margin-bottom: 8px;">
-        <ng-container *ngIf="isEmpty(emergencySupportTitleEl)">{{ emergencySupportTitle }}</ng-container>
+        {{ emergencySupportTitle }}
     </p>
-    <div #emergencySupportTitleVC><ng-content select="[pxb-emergency-support-title]"></ng-content></div>
 
     <p *ngIf="isEmpty(emergencySupportDescriptionEl)" class="mat-body-1" [innerHTML]="emergencySupportDescription"></p>
     <div #emergencySupportDescriptionVC><ng-content select="[pxb-emergency-support-description]"></ng-content></div>
@@ -41,7 +34,6 @@
 
 <div class="pxb-auth-action-button-container">
     <button mat-flat-button color="primary" (click)="navigateToLogin()" [style.width.%]="100">
-        <ng-container *ngIf="isEmpty(okayButtonTextEl)">{{ okayButtonText }}</ng-container>
-        <div #okayButtonTextVC><ng-content select="[pxb-okay-button-text]"></ng-content></div>
+        {{ okayButtonText }}
     </button>
 </div>

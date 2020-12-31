@@ -1,15 +1,10 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
-import {isEmptyView} from "../../../../util/view-utils";
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { isEmptyView } from '../../../../util/view-utils';
 
 @Component({
     selector: 'pxb-create-account-account-created-step',
     template: `
-        <div class="mat-title pxb-auth-title">
-            <ng-container *ngIf="isEmpty(accountCreatedTitleEl)">
-                {{ accountCreatedTitle }}
-            </ng-container>
-            <div #accountCreatedTitleVC><ng-content select="[pxb-account-created-title]"></ng-content></div>
-        </div>
+        <div class="mat-title pxb-auth-title">{{ accountCreatedTitle }}</div>
         <div class="pxb-auth-full-height" style="justify-content: center;">
             <pxb-empty-state>
                 <mat-icon pxb-empty-icon class="pxb-account-created-empty-state">check_circle</mat-icon>
@@ -39,7 +34,6 @@ export class PxbAccountCreatedComponent implements OnInit {
     @Input() successTitle: string;
     @Input() successDescription: string;
 
-    @ViewChild('accountCreatedTitleVC') accountCreatedTitleEl;
     @ViewChild('successTitleVC') successTitleEl;
     @ViewChild('successDescriptionVC') successDescriptionEl;
 

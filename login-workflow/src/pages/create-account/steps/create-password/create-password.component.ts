@@ -11,10 +11,7 @@ import { isEmptyView } from '../../../../util/view-utils';
     selector: 'pxb-create-account-create-password-step',
     template: `
         <div class="mat-title pxb-auth-title">
-            <ng-container *ngIf="isEmpty(createPasswordTitleEl)">
-                {{ createPasswordTitle }}
-            </ng-container>
-            <div #createPasswordTitleVC><ng-content select="[pxb-create-password-title]"></ng-content></div>
+            {{ createPasswordTitle }}
         </div>
         <p class="mat-body-1" style="margin-bottom: 24px;">
             <ng-container *ngIf="isEmpty(createPasswordInstructionsEl)">
@@ -85,7 +82,6 @@ export class PxbCreatePasswordComponent {
     @Input() confirmPasswordFormLabel: string;
     @Input() passwordMismatchError: string;
 
-    @ViewChild('createPasswordTitleVC') createPasswordTitleEl;
     @ViewChild('createPasswordInstructionsVC') createPasswordInstructionsEl;
 
     @Output() passwordChange: EventEmitter<string> = new EventEmitter<string>();
@@ -133,7 +129,8 @@ export class PxbCreatePasswordComponent {
             this.createPasswordTitle = 'Create Password';
         }
         if (this.createPasswordInstructions === undefined) {
-            this.createPasswordInstructions = 'Please select a password. Make sure that your password meets the necessary complexity requirements outlined below.';
+            this.createPasswordInstructions =
+                'Please select a password. Make sure that your password meets the necessary complexity requirements outlined below.';
         }
         if (this.passwordFormLabel === undefined) {
             this.passwordFormLabel = 'Password';
@@ -144,7 +141,6 @@ export class PxbCreatePasswordComponent {
         if (this.passwordMismatchError === undefined) {
             this.passwordMismatchError = 'Passwords do not match';
         }
-
     }
 
     toggleNewPasswordVisibility(): void {

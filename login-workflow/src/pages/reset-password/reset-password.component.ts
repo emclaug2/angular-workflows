@@ -35,15 +35,11 @@ export class PxbResetPasswordComponent implements OnInit {
     @Input() doneButtonText = 'Done';
 
     @ViewChild('pxbConfirm') confirmInputElement: ElementRef;
-    @ViewChild('pageTitleVC') pageTitleEl: ElementRef;
     @ViewChild('pageDescriptionVC', { static: false }) pageDescriptionEl: ElementRef;
     @ViewChild('resetCodeErrorTitleVC') resetCodeErrorTitleEl: ElementRef;
     @ViewChild('resetCodeErrorDescriptionVC') resetCodeErrorDescriptionEl: ElementRef;
     @ViewChild('resetSuccessTitleVC') resetSuccessTitleEl: ElementRef;
     @ViewChild('resetSuccessDescriptionVC') resetSuccessDescriptionEl: ElementRef;
-    @ViewChild('backButtonTextVC') backButtonTextEl: ElementRef;
-    @ViewChild('okayButtonTextVC') okayButtonTextEl: ElementRef;
-    @ViewChild('doneButtonTextVC') doneButtonTextEl: ElementRef;
 
     isValidResetCode = false;
     passwordResetSuccess = false;

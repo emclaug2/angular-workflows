@@ -1,16 +1,13 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { PxbFormsService } from '../../../../services/forms/forms.service';
-import {isEmptyView} from "../../../../util/view-utils";
+import { isEmptyView } from '../../../../util/view-utils';
 
 @Component({
     selector: 'pxb-create-account-account-details-step',
     template: `
         <div class="mat-title pxb-auth-title">
-            <ng-container *ngIf="isEmpty(accountDetailsTitleEl)">
-                {{ accountDetailsTitle }}
-            </ng-container>
-            <div #accountDetailsTitleVC><ng-content select="[pxb-account-details-title]"></ng-content></div>
+            {{ accountDetailsTitle }}
         </div>
         <div class="pxb-auth-full-height">
             <p class="mat-body-1" style="margin-bottom: 24px;">
@@ -18,7 +15,9 @@ import {isEmptyView} from "../../../../util/view-utils";
                     {{ accountDetailsInstructions }}
                 </ng-container>
             </p>
-            <div #accountDetailsInstructionsVC><ng-content select="[pxb-account-details-instructions]"></ng-content></div>
+            <div #accountDetailsInstructionsVC>
+                <ng-content select="[pxb-account-details-instructions]"></ng-content>
+            </div>
             <mat-divider class="pxb-auth-divider" style="margin-top: 16px; margin-bottom: 32px;"></mat-divider>
             <div style="display: flex; flex: 1 1 0px; overflow: auto;">
                 <ng-container *ngIf="!useDefaultAccountDetails">
@@ -85,7 +84,6 @@ export class PxbAccountDetailsComponent {
 
     @ViewChild('pxbLast') lastNameInputElement: ElementRef;
     @ViewChild('pxbPhone') phoneInputElement: ElementRef;
-    @ViewChild('accountDetailsTitleVC') accountDetailsTitleEl: ElementRef;
     @ViewChild('accountDetailsInstructionsVC') accountDetailsInstructionsEl: ElementRef;
 
     firstNameFormControl: FormControl;

@@ -30,12 +30,8 @@ export class PxbForgotPasswordComponent implements OnInit {
     @Input() includeEmailInSuccessMessage = true;
     @Input() customEmailValidator: ValidatorFn;
 
-    @ViewChild('pageTitleVC') pageTitleEl;
     @ViewChild('successTitleVC') successTitleEl;
     @ViewChild('successDescriptionVC') successDescriptionEl;
-    @ViewChild('backButtonTextVC') backButtonTextEl;
-    @ViewChild('doneButtonTextVC') doneButtonTextEl;
-    @ViewChild('okayButtonTextVC') okayButtonTextEl;
     @ViewChild('pageInstructionsVC') pageInstructionsEl;
     @ViewChild('businessResponseDescriptionVC') businessResponseDescriptionEl;
     @ViewChild('phoneContactDescriptionVC') phoneContactDescriptionEl;

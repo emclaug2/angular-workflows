@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AUTH_ROUTES } from '../../auth/auth.routes';
@@ -8,7 +8,7 @@ import { PxbAuthSecurityService, SecurityContext } from '../../services/state/au
 import { PxbCreateAccountInviteErrorDialogService } from '../../services/dialog/create-account-invite-error-dialog.service';
 import { ErrorDialogData } from '../../services/dialog/error-dialog.service';
 import { FormControl } from '@angular/forms';
-import {isEmptyView} from "../../util/view-utils";
+import { isEmptyView } from '../../util/view-utils';
 
 @Component({
     selector: 'pxb-create-account-invite',
@@ -47,10 +47,6 @@ export class PxbCreateAccountInviteComponent implements OnInit {
     @Input() backButtonText = 'Back';
     @Input() nextButtonText = 'Next';
     @Input() doneButtonText = 'Continue';
-    @ViewChild('backButtonTextVC') backButtonTextEl;
-    @ViewChild('doneButtonTextVC') doneButtonTextEl;
-    @ViewChild('nextButtonTextVC') nextButtonTextEl;
-
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 
     currentPageId = 0;
