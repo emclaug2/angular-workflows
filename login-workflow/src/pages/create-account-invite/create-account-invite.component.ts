@@ -16,29 +16,41 @@ import { isEmptyView } from '../../util/view-utils';
     styleUrls: ['./create-account-invite.component.scss'],
 })
 export class PxbCreateAccountInviteComponent implements OnInit {
-    @Input() accountDetails: FormControl[] = [];
-    @Input() hasValidAccountDetails = false;
-    @Input() useDefaultAccountDetails;
 
-    //TODO: Loading EULA, Verifying Reset URL, Error State
+    currentPageId = 0;
+    isLoading: boolean;
+
+    // Validating Registration URL
+    @Input() validatingRegistrationLinkMsg = 'Validating registration link...';
+    @Input() invalidRegistrationLinkTitle = 'Error';
+    @Input() invalidRegistrationLinkDescription = 'There was an error during account registration.';
+    @ViewChild('invalidRegistrationLinkTitleVC') invalidRegistrationLinkTitleEl;
+    @ViewChild('invalidRegistrationLinkDescriptionVC') invalidRegistrationLinkDescriptionEl;
+    isValidRegistrationLink: boolean;
 
     // EULA Page
-    @Input() eulaTitle: string;
+    @Input() eulaStepTitle: string;
     @Input() eulaConfirmRead: string;
+    userAcceptsEula: boolean;
 
     // Create Password Page
-    @Input() createPasswordTitle: string;
+    @Input() createPasswordStepTitle: string;
     @Input() createPasswordInstructions: string;
     @Input() passwordFormLabel: string;
     @Input() confirmPasswordFormLabel: string;
     @Input() passwordMismatchError: string;
+    password: string;
+    passwordMeetsRequirements: boolean;
 
     // Account Details Page
-    @Input() accountDetailsTitle: string;
+    @Input() accountDetailsStepTitle: string;
     @Input() accountDetailsInstructions: string;
+    @Input() hasValidAccountDetails = false;
+    @Input() useDefaultAccountDetails;
+    @Input() accountDetails: FormControl[] = [];
 
     // Account Created Page
-    @Input() accountCreatedTitle: string;
+    @Input() accountCreatedStepTitle: string;
     @Input() successTitle: string;
     @Input() successDescription: string;
     @Input() userName: string;
@@ -47,18 +59,9 @@ export class PxbCreateAccountInviteComponent implements OnInit {
     @Input() backButtonText = 'Back';
     @Input() nextButtonText = 'Next';
     @Input() doneButtonText = 'Continue';
+    @Input() okayButtonText = 'Okay';
+
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
-
-    currentPageId = 0;
-    isLoading: boolean;
-    isValidRegistrationLink: boolean;
-
-    // EULA Page
-    userAcceptsEula: boolean;
-
-    // Create Password Page
-    password: string;
-    passwordMeetsRequirements: boolean;
 
     constructor(
         private readonly _router: Router,
@@ -81,7 +84,7 @@ export class PxbCreateAccountInviteComponent implements OnInit {
     }
 
     validateRegistrationLink(): void {
-        this._pxbSecurityService.setLoadingMessage('Validating registration link...');
+        this._pxbSecurityService.setLoadingMessage(this.validatingRegistrationLinkMsg);
         this._pxbSecurityService.setLoading(true);
         this._pxbRegisterService
             .validateUserRegistrationRequest()

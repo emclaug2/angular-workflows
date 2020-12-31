@@ -20,7 +20,7 @@ import { isEmptyView } from '../../../../util/view-utils';
     encapsulation: ViewEncapsulation.None,
     template: `
         <div class="mat-title pxb-auth-title">
-            {{ eulaTitle }}
+            {{ eulaStepTitle }}
         </div>
         <div
             *ngIf="eula"
@@ -72,7 +72,7 @@ import { isEmptyView } from '../../../../util/view-utils';
     ],
 })
 export class PxbEulaComponent implements OnInit {
-    @Input() eulaTitle: string;
+    @Input() eulaStepTitle: string;
     @Input() eulaConfirmRead: string;
     @Input() userAcceptsEula: boolean;
     @Output() userAcceptsEulaChange: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -111,8 +111,8 @@ export class PxbEulaComponent implements OnInit {
     }
 
     setDefaultLabels(): void {
-        if (this.eulaTitle === undefined) {
-            this.eulaTitle = 'License Agreement';
+        if (this.eulaStepTitle === undefined) {
+            this.eulaStepTitle = 'License Agreement';
         }
         if (this.eulaConfirmRead === undefined) {
             this.eulaConfirmRead = 'I have read and agree to the Terms & Conditions';

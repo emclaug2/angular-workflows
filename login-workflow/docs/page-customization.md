@@ -166,23 +166,27 @@ A user has received an email invite to create an account.
     
 <div style="overflow: auto;">
 
-| @Input                             | Description                                                                 | Type                | ng-content                                 |
-| ---------------------------------- | --------------------------------------------------------------------------- | ------------------- | ------------------------------------------ |   
-| eulaTitle                          | Title on License Agreement page                                             | `string`            |                                            |
-| eulaConfirmRead                    | Text affirming the user has read the EULA                                   | `string`            | `pxb-eula-confirm-read`                    |  
-| createPasswordTitle                | Title on the Create Password page                                           | `string`            |                                            |  
-| createPasswordInstructions         | Password creation instructions                                              | `string`            | `pxb-create-password-instructions`         |
-| passwordFormLabel                  | Password form title                                                         | `string`            | `pxb-password-form-label`                  | 
-| confirmPasswordFormLabel           | Confirm password form title                                                 | `string`            | `pxb-confirm-password-form-label`          |
-| passwordMismatchError              | Error seen when passwords do not match                                      | `string`            |                                            |
-| accountDetailsTitle                | Title on the Account Details page                                           | `string`            |                                            |
-| accountDetailsInstructions         | Account details instructions                                                | `string`            | `pxb-account-details-instructions`         |
-| accountCreatedTitle                | Title on the Account Created page                                           | `string`            |                                            |
-| successTitle                       | Success state title when email send is successful                           | `string`            | `pxb-success-title`                        |
-| successDescription                 | Success state description email send is successful                          | `string`            | `pxb-success-description`                  |
-| includeEmailInSuccessMessage       | Whether to include the email in the success message                         | `boolean`           |                                            |
-| backButtonText                     | Back button text                                                            | `string`            |                                            |
-| nextButtonText                     | Next button text                                                            | `string`            |                                            |  
-| doneButtonText                     | Done button text                                                            | `string`            |                                            |  
+| @Input                             | Description                                                                 | Type                | ng-content                                   |
+| ---------------------------------- | --------------------------------------------------------------------------- | ------------------- | -------------------------------------------- |   
+| eulaTitle                          | Title on License Agreement page                                             | `string`            |                                              |
+| eulaConfirmRead                    | Text affirming the user has read the EULA                                   | `string`            | `pxb-eula-confirm-read`                      |  
+| createPasswordTitle                | Title on the Create Password page                                           | `string`            |                                              |    
+| createPasswordInstructions         | Password creation instructions                                              | `string`            | `pxb-create-password-instructions`           |
+| passwordFormLabel                  | Password form title                                                         | `string`            | `pxb-password-form-label`                    | 
+| confirmPasswordFormLabel           | Confirm password form title                                                 | `string`            | `pxb-confirm-password-form-label`            |
+| passwordMismatchError              | Error seen when passwords do not match                                      | `string`            |                                              |
+| accountDetailsTitle                | Title on the Account Details page                                           | `string`            |                                              |
+| accountDetailsInstructions         | Account details instructions                                                | `string`            | `pxb-account-details-instructions`           |
+| accountCreatedTitle                | Title on the Account Created page                                           | `string`            |                                              |
+| successTitle                       | Success state title when email send is successful                           | `string`            | `pxb-success-title`                          |
+| successDescription                 | Success state description email send is successful                          | `string`            | `pxb-success-description`                    |
+| includeEmailInSuccessMessage       | Whether to include the email in the success message                         | `boolean`           |                                              |
+| backButtonText                     | Back button text                                                            | `string`            |                                              |
+| nextButtonText                     | Next button text                                                            | `string`            |                                              |    
+| doneButtonText                     | Done button text                                                            | `string`            |                                              |    
+| okayButtonText                     | Okay button text                                                            | `string`            |                                              |  
+| validatingRegistrationLinkMsg      | Loading message shown when validating registration link                     | `string`            |                                              |  
+| invalidRegistrationLinkTitle       | Error state title when registration link is invalid                         | `string`            | `pxb-invalid-registration-link-title`        |  
+| invalidRegistrationLinkDescription | Error state description when registration link is invalid                   | `string`            | `pxb-invalid-registration-link-description`  |  
 
 </div>

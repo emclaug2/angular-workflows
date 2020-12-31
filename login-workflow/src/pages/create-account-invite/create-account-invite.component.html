@@ -1,15 +1,26 @@
 <!-- Error State -->
 <ng-container *ngIf="hasEmptyStateError() && !isLoading">
-    <div class="mat-title pxb-auth-title">{{ eulaTitle }}</div>
+    <div class="mat-title pxb-auth-title">{{ eulaStepTitle }}</div>
     <div class="pxb-create-account-invite-content-error-state">
-        <!-- TODO: How should we handle error states? -->
-        <pxb-empty-state title="Error" description="There was an error during account registration.">
+        <pxb-empty-state>
             <mat-icon pxb-empty-icon>error</mat-icon>
+            <div pxb-title>
+                <div *ngIf="isEmpty(invalidRegistrationLinkTitleEl)">{{ invalidRegistrationLinkTitle }}</div>
+                <div #invalidRegistrationLinkTitleVC>
+                    <ng-content select="[pxb-invalid-registration-link-error-title]"></ng-content>
+                </div>
+            </div>
+            <div pxb-description>
+                <div *ngIf="isEmpty(invalidRegistrationLinkDescriptionEl)">{{ invalidRegistrationLinkDescription }}</div>
+                <div #invalidRegistrationLinkDescriptionVC>
+                    <ng-content select="[pxb-invalid-registration-link-error-description]"></ng-content>
+                </div>
+            </div>
         </pxb-empty-state>
     </div>
     <mat-divider class="pxb-auth-divider" style="margin-bottom: 16px;"></mat-divider>
     <div class="pxb-auth-action-button-container">
-        <button mat-flat-button color="primary" (click)="navigateToLogin()" [style.width.%]="100">Okay</button>
+        <button mat-flat-button color="primary" (click)="navigateToLogin()" [style.width.%]="100">{{ okayButtonText }}</button>
     </div>
 </ng-container>
 
@@ -17,7 +28,7 @@
     <pxb-create-account-eula-step
         *ngIf="currentPageId === 0 && isValidRegistrationLink"
         [(userAcceptsEula)]="userAcceptsEula"
-        [eulaTitle]="eulaTitle"
+        [eulaStepTitle]="eulaStepTitle"
         [eulaConfirmRead]="eulaConfirmRead"
     >
         <ng-content pxb-eula-confirm-read select="[pxb-eula-confirm-read]"></ng-content>
@@ -28,7 +39,7 @@
         [(password)]="password"
         [(passwordMeetsRequirements)]="passwordMeetsRequirements"
         (advance)="canContinue() ? goNext() : ''"
-        [createPasswordTitle]="createPasswordTitle"
+        [createPasswordStepTitle]="createPasswordStepTitle"
         [createPasswordInstructions]="createPasswordInstructions"
         [passwordFormLabel]="passwordFormLabel"
         [confirmPasswordFormLabel]="confirmPasswordFormLabel"
@@ -41,7 +52,7 @@
         *ngIf="currentPageId === 2 && !skipAccountDetails()"
         [useDefaultAccountDetails]="useDefaultAccountDetails"
         [accountDetailsInstructions]="accountDetailsInstructions"
-        [accountDetailsTitle]="accountDetailsTitle"
+        [accountDetailsStepTitle]="accountDetailsStepTitle"
         (accountDetailsChange)="accountDetails = $event"
         (validAccountDetailsChange)="hasValidAccountDetails = $event"
         (advance)="canContinue() ? goNext() : ''"
@@ -53,7 +64,7 @@
     <pxb-create-account-account-created-step
         *ngIf="currentPageId === 3 || (currentPageId === 2 && skipAccountDetails())"
         [userName]="getUserName()"
-        [accountCreatedTitle]="accountCreatedTitle"
+        [accountCreatedStepTitle]="accountCreatedStepTitle"
         [successTitle]="successTitle"
         [successDescription]="successDescription"
     >

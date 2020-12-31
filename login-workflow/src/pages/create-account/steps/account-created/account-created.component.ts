@@ -4,7 +4,7 @@ import { isEmptyView } from '../../../../util/view-utils';
 @Component({
     selector: 'pxb-create-account-account-created-step',
     template: `
-        <div class="mat-title pxb-auth-title">{{ accountCreatedTitle }}</div>
+        <div class="mat-title pxb-auth-title">{{ accountCreatedStepTitle }}</div>
         <div class="pxb-auth-full-height" style="justify-content: center;">
             <pxb-empty-state>
                 <mat-icon pxb-empty-icon class="pxb-account-created-empty-state">check_circle</mat-icon>
@@ -30,7 +30,7 @@ import { isEmptyView } from '../../../../util/view-utils';
 export class PxbAccountCreatedComponent implements OnInit {
     @Input() email: string;
     @Input() userName: string;
-    @Input() accountCreatedTitle: string;
+    @Input() accountCreatedStepTitle: string;
     @Input() successTitle: string;
     @Input() successDescription: string;
 
@@ -40,8 +40,8 @@ export class PxbAccountCreatedComponent implements OnInit {
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 
     ngOnInit(): void {
-        if (this.accountCreatedTitle === undefined) {
-            this.accountCreatedTitle = 'Account Created';
+        if (this.accountCreatedStepTitle === undefined) {
+            this.accountCreatedStepTitle = 'Account Created';
         }
         if (this.successDescription === undefined) {
             this.successDescription = this.getSuccessEmptyStateDescription();

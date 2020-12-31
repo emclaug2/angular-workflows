@@ -7,7 +7,7 @@ import { isEmptyView } from '../../../../util/view-utils';
     selector: 'pxb-create-account-account-details-step',
     template: `
         <div class="mat-title pxb-auth-title">
-            {{ accountDetailsTitle }}
+            {{ accountDetailsStepTitle }}
         </div>
         <div class="pxb-auth-full-height">
             <p class="mat-body-1" style="margin-bottom: 24px;">
@@ -75,7 +75,7 @@ import { isEmptyView } from '../../../../util/view-utils';
 /* Default Account Details consists of a First/Last Name (required) and a phone number (optional). */
 export class PxbAccountDetailsComponent {
     @Input() useDefaultAccountDetails = false;
-    @Input() accountDetailsTitle: string;
+    @Input() accountDetailsStepTitle: string;
     @Input() accountDetailsInstructions: string;
 
     @Output() accountDetailsChange = new EventEmitter<FormControl[]>();
@@ -108,8 +108,8 @@ export class PxbAccountDetailsComponent {
     }
 
     setDefaultLabels(): void {
-        if (this.accountDetailsTitle === undefined) {
-            this.accountDetailsTitle = 'Account Details';
+        if (this.accountDetailsStepTitle === undefined) {
+            this.accountDetailsStepTitle = 'Account Details';
         }
         if (this.accountDetailsInstructions === undefined) {
             this.accountDetailsInstructions = 'Enter your details below to complete account creation.';

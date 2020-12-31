@@ -39,7 +39,6 @@ import { PxbAuthConfig, AUTH_ROUTES } from '@pxblue/angular-auth-workflow';
                 [hasValidAccountDetails]="accountDetailsValid()"
                 [userName]="firstNameFormControl.value + ' ' + lastNameFormControl.value"
             >
-                <div pxb-eula-title>EULA title content</div>
                 <div pxb-eula-confirm-read>Did you read it?</div>
                 <template pxb-account-details-form [ngTemplateOutlet]="accountDetailsRef"></template>
             </pxb-create-account-invite>

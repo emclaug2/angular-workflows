@@ -11,7 +11,7 @@ import { isEmptyView } from '../../../../util/view-utils';
     selector: 'pxb-create-account-create-password-step',
     template: `
         <div class="mat-title pxb-auth-title">
-            {{ createPasswordTitle }}
+            {{ createPasswordStepTitle }}
         </div>
         <p class="mat-body-1" style="margin-bottom: 24px;">
             <ng-container *ngIf="isEmpty(createPasswordInstructionsEl)">
@@ -76,7 +76,7 @@ import { isEmptyView } from '../../../../util/view-utils';
 export class PxbCreatePasswordComponent {
     @Input() password: string;
     @Input() passwordMeetsRequirements: boolean;
-    @Input() createPasswordTitle: string;
+    @Input() createPasswordStepTitle: string;
     @Input() createPasswordInstructions: string;
     @Input() passwordFormLabel: string;
     @Input() confirmPasswordFormLabel: string;
@@ -125,8 +125,8 @@ export class PxbCreatePasswordComponent {
     }
 
     setDefaultLabels(): void {
-        if (this.createPasswordTitle === undefined) {
-            this.createPasswordTitle = 'Create Password';
+        if (this.createPasswordStepTitle === undefined) {
+            this.createPasswordStepTitle = 'Create Password';
         }
         if (this.createPasswordInstructions === undefined) {
             this.createPasswordInstructions =
