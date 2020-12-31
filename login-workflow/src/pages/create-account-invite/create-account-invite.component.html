@@ -11,7 +11,9 @@
                 </div>
             </div>
             <div pxb-description>
-                <div *ngIf="isEmpty(invalidRegistrationLinkDescriptionEl)">{{ invalidRegistrationLinkDescription }}</div>
+                <div *ngIf="isEmpty(invalidRegistrationLinkDescriptionEl)">
+                    {{ invalidRegistrationLinkDescription }}
+                </div>
                 <div #invalidRegistrationLinkDescriptionVC>
                     <ng-content select="[pxb-invalid-registration-link-error-description]"></ng-content>
                 </div>
@@ -20,7 +22,9 @@
     </div>
     <mat-divider class="pxb-auth-divider" style="margin-bottom: 16px;"></mat-divider>
     <div class="pxb-auth-action-button-container">
-        <button mat-flat-button color="primary" (click)="navigateToLogin()" [style.width.%]="100">{{ okayButtonText }}</button>
+        <button mat-flat-button color="primary" (click)="navigateToLogin()" [style.width.%]="100">
+            {{ okayButtonText }}
+        </button>
     </div>
 </ng-container>
 

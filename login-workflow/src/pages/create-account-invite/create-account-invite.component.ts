@@ -16,7 +16,6 @@ import { isEmptyView } from '../../util/view-utils';
     styleUrls: ['./create-account-invite.component.scss'],
 })
 export class PxbCreateAccountInviteComponent implements OnInit {
-
     currentPageId = 0;
     isLoading: boolean;
 
