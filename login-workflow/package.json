@@ -67,14 +67,14 @@
     "typescript": "4.0.5",
     "zone.js": "~0.10.2"
   },
-    "bugs": {
-        "url": "https://github.com/pxblue/angular-workflows/issues"
-    },
-    "homepage": "https://github.com/pxblue/angular-workflows#readme",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/pxblue/angular-workflows.git"
-    },
-    "author": "PX Blue <pxblue@eaton.com>",
-    "license": "BSD-3-Clause"
+  "bugs": {
+    "url": "https://github.com/pxblue/angular-workflows/issues"
+  },
+  "homepage": "https://github.com/pxblue/angular-workflows#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pxblue/angular-workflows.git"
+  },
+  "author": "PX Blue <pxblue@eaton.com>",
+  "license": "BSD-3-Clause"
 }
